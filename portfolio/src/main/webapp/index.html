@@ -5,14 +5,188 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top" id="nav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" style="color:black" href="#gettoknowme">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color:black" href="#projectshowcase">Project Showcase</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color:black" href="#kodakmoments">Kodak Moments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color:black" href="#cameraeatsfirst">Camera Eats First</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color:black" href="#step,brush,tap!">Step, Brush, Tap!</a>
+            </li>
+        </ul>
+    </nav>
+    <!--
+    <div class="intro-image">
+        <img src="images/just-me.jpg" style="height:500px;width:1480px;background-repeat:no-repeat;background-position:center;height:100%" onclick="this.style.display='none'">
     </div>
+    -->
+    <div class="header">
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
+    </div>
+    <div class="box">
+        &nbsp;
+        &nbsp;
+      <h1>Sofia Fernandez Chacin</h1>
+      <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:1400px">
+      <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;margin-bottom:40px">
+      <img src="images/Headshot.jpg" style="width:270px;height:400px;float:left;margin-left:40px;margin-right:80px;margin-top:40px"/>
+      &nbsp;
+      &nbsp;
+      <h2 id="gettoknowme">Get To Know Me!</h2>
+      <p class="intro">I was born in Caracas, Venezuela. I moved to Atlanta for college at Georgia Tech, where I am pursuing my Bachelors in CS, with a concentration in Intelligence and Devices.</p>
+      <p class="intro">Among my favorite extracurriculars you can find volleyball and swimming for sports, playing the piano and dancing for the arts, and speaking French for the languages.</p>
+      <p class="intro">I am very involved in my SHPE Chapter and Familia, where I currently serve as Internal Vicepresident, managing recruitment, retention and cohesion among its members. I also enjoy my Resident Advisor work on campus, where I assist Freshmen with their college transition.</p>
+      <p class="intro">Due to my origins, I have acquired a very global perspective, so I very much value individual aptitudes that add up to the collective interest. I regard myself as very resilient and committed, and look forward to opportunities like this program to put my technological preparation into practice. Hands on!</p>
+    </div>
+    <span class="span1">
+    <div class="project-showcase">
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <ol>
+            <li>CONTACT INFO:</li>
+            <li><hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:150px;margin-left:0px"></li>
+            <li><a href="#https://www.linkedin.com/in/sofia-fernandez-chacin-242787175/">LinkedIn</a>  <a href="#https://github.com/sofifch">GitHub</a>  <a href="https://www.instagram.com/sofifch/">Instagram</a></li>
+        </ol>
+        &nbsp;
+        &nbsp;
+        <h2 id="projectshowcase">PROJECT SHOWCASE</h2>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;margin-bottom:40px">
+        <div class="row">
+            <div class="column" style="width:400px">
+                <img src="images/tesis.jpg" style="width:320px;height:260px;margin-bottom:15px">
+                <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+                <p class="project-title">Manufacture of a Baby Incubator Prototype</p>
+                <p class="project-dsc">In a team of 3 (with my friends Andrea and Gabriela),  we performed a 2-year investigation to determine the essential functions of an incubator. 
+                    Then, we designed a prototype that implemented the vital functions using materials accessible for low-resource populations.
+                    After performing functionality validation tests, we donated several prototypes to foundations in need. </p>
+            </div>
+            <div class="column" style="width:400px">
+                <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+                <p class="project-title">UI Features of a Cash Flow Mobile App</p>
+                <p class="project-dsc">During my internship experience at Ernst & Young Consulting, I had the chance of helping a team that was participating in their internal “Shark-Tank” style competition.
+                     They developed a solution for cash flow issues they were experiencing in the company. I personally provided assistance on improving the UI features of the software they developed, like input control and navigation components.</p>
+                <img src="images/ey.jpg" style="width:250;height:340px;margin-bottom:15px">
+            </div>
+            <div class="column" style="width:400px">
+                <img src="images/spacetraders.jpg" style="width:320px;height:260px;margin-bottom:15px">
+                <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+                <p class="project-title">Programming of an Interactive Game</p>
+                <p class="project-dsc">For a project-based class, I teamed up to design and program an interactive game with the “Space Traders” theme from scratch. The back-end was done in Java and the user interface was done with JavaFX. 
+                    It consisted of a individual player trading game, where resources and money gave you power, and there were varied NPC encounters that interacted with the player and made it more dynamic.</p>
+            </div>
+        </div>
+        &nbsp;
+        &nbsp;
+        <h2 id="kodakmoments">KODAK MOMENTS</h2>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;margin-bottom:40px">
+        <div class="row">
+            <div class="column" style="width:400px">
+                <img src="images/mami.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">High-school grad with mom!</p>
+                <p class="love-spread">&hearts;</p>
+                <img src="images/vicente.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">At the beach with my boyfriend!</p>
+                <p class="love-spread">&hearts;</p>
+            </div>
+            <div class="column" style="width:400px">
+                <img src="images/bffs.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">Best friends from college!</p>
+                <p class="love-spread">&hearts;</p>
+                <img src="images/papi.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">TBT with dad and my glasses!</p>
+                <p class="love-spread">&hearts;</p>
+            </div>
+            <div class="column" style="width:400px">
+                <img src="images/family.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">Family portrait skiing!</p>
+                <p class="love-spread">&hearts;</p>
+                <img src="images/zipline.jpg" style="width:330px;height:260px;margin-bottom:10px">
+                <p class="photos-dsc">Zip lining adventure!</p>
+                <p class="love-spread">&hearts;</p>
+            </div>
+        </div>
+        &nbsp;
+        &nbsp;
+        <h2 id="cameraeatsfirst">CAMERA EATS FIRST</h2>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;margin-bottom:40px">
+        <div class="row">
+            <div class="column" style="width:600px">
+                <p class="food-talk">I am definitely not a professional photographer, but I really enjoy taking pictures, specifically of food. I actually enjoy it so much that I can’t never start eating before taking a snapshot of it first. 
+                    People usually complain, but I always remind them that the camera eats first! Until now, I had  never thought about why I do it, but now I realize that there are mainly 2 motives behind it.</p>
+                <img src="images/fish.jpg" style="width:370px;height:260px;margin-bottom:35px;margin-top:20px">
+                <p class="food-talk">The first one is that I am very oddly satisfied by well-thought presentations of plates, and the way they’re placed in a manner appealing to the consumer, in this case, me! Here I share with you 3 examples of food-shots taken by me. 
+                    The top right portrays a typical breakfast in my home country: an “arepa” with multiple sides, scrambled eggs, cheese, ham, and of course, some shredded beef and a touch of black beans. To the left, it’s a meal for a beach day: fried fish, rice and some fresh salad. 
+                    Below, I bet you know it: mini-burgers and french fries!</p>
+            </div>
+            <div class="column" style="width:600px">
+                <img src="images/arepa.jpg" style="width:370px;height:260px;margin-bottom:20px">
+                <p class="food-talk">The other purpose, well, it’s just a matter of initializing small talk with friends. Sometimes you’re trying with all your efforts to maintain a healthy diet and sharing what you eat with others on the same plan, makes you feel supported and gives you more motivation.
+                     Occasionally, you feel like cooking famous recipes from scratch and by your own, so why not share it. I am the kind of person that cuts the chocolate lava-cake in half just to record it, be prepared!</p>
+                <img src="images/burgers.jpg" style="width:370px;height:260px;margin-top:20px">
+            </div>
+        </div>
+        &nbsp;
+        &nbsp;
+        <h2 id="step,brush,tap!">STEP, BRUSH, TAP!</h2>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;margin-bottom:40px">
+        <div class="row">
+            <div class="column" style="width:280px">
+                <img src="images/tap1.jpg" style="width:240px;height:270px;margin-bottom:8px">
+                &nbsp;
+                <p class="tap-subtitles">WELL-ROUNDED ACADEMY</p>
+                <p class="tap-dsc">Long story short, I used to take dance classes at an academy that was very popular for its Jazz lessons, but they asked every member to learn 4 distinct types of dances: Jazz, Ballet, Flamenco, and Tap. They were very enthusiastic about the well-rounded dancer. 
+                    That’s where I discovered my passion for Tap! It was an activity that I hadn’t done before, following the rhythm of music by making distinct sounds with my feet.</p>
+            </div>
+            <div class="column" style="width:280px">
+                <img src="images/tap2.jpg" style="width:240px;height:270px;margin-bottom:8px">
+                &nbsp;
+                <p class="tap-subtitles">MINDFULNESS</p>
+                <p class="tap-dsc">The name comes from the metal “tap” that the shoe has on the toe and the heel. Tapping those against the floor is what makes the percussion-like sound that develops the whole heart of the dance. I found myself anticipating the Tap class. 
+                    It effortlessly granted me a space where I felt completely comfortable of being myself and coordinating my mind and body, which is why I practiced it for 7 years.</p>
+            </div>
+            <div class="column" style="width:280px">
+                <img src="images/tap3.jpg" style="width:240px;height:270px;margin-bottom:8px">
+                &nbsp;
+                <p class="tap-subtitles">ATYPICAL</p>
+                <p class="tap-dsc">I also regard it as a very special acquired skill, since not many people find it appealing or even manageable. It has a couple of movements like the “brush” or the “shuffle” which require a lot of motor coordination and awareness of the desired sound. 
+                    The incredible thing about it is that if you’re suficiently familiar with the moves, you can dance along almost any kind of music… classic, hip-hop, country, you name it!</p>
+            </div>
+            <div class="column" style="width:280px">
+                <img src="images/tap4.jpg" style="width:240px;height:270px;margin-bottom:8px">
+                &nbsp;
+                <p class="tap-subtitles">BREAK A LEG!</p>
+                <p class="tap-dsc">I will share a brief video with you where I am dancing a short part of a song along my teacher, it was a few years ago so I probably look younger. 
+                    I encourage you to watch it various times and try to learn it, it doesn’t matter if you don’t have the shoes, I promise it will still be really fun!</p>
+                <p class="dancing-video">WATCH VIDEO HERE:</p>
+                <video width="220" height="90" controls>
+                    <source src="videos/tap-video.MP4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    </span>
   </body>
 </html>

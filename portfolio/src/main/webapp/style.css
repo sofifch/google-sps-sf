@@ -1,9 +1,184 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+#box {
+    max-width: 2000px;
+    margin:auto;
+    background-color:rgb(253, 234, 240);
 }
 
-#greeting-container {
-  margin-top: 20px;
+#project-showcase {
+    max-width: 2000px;
+    margin:auto;
+    background-color:rgb(253, 234, 240);
 }
+
+.column {
+    margin-left:62px;
+    text-align:center;
+}
+
+h1 {
+    font-family: 'Lucida Console', Monaco, monospace;
+    text-align: center;
+    margin-top:70px;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-weight:bold;
+}
+
+p.intro {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    margin-right:80px;
+    margin-left:200px;
+    margin-top:30px;
+    text-justify: inter-word;
+    display: flex;
+    text-indent:35px;
+}
+
+p.project-title {
+    font-family: 'Lucida Console', Monaco, monospace;
+    font-weight:bold;
+    text-align: center;
+    font-size:125%;
+    margin-top:5px;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+p.project-dsc {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin-top:5px;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+p.photos-dsc {
+    font-family: 'Lucida Console', Monaco, monospace;
+    text-align: center;
+    font-size:90%;
+    margin-top:5px;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+p.food-talk {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent:35px;
+    margin-left:40px;
+    margin-right:40px;
+}
+
+p.tap-subtitles {
+    font-family: 'Lucida Console', Monaco, monospace;
+    text-align: center;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+p.tap-dsc {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: rgba(133, 133, 133, 0.6); 
+    color:black;
+    margin-top:5px;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+p.dancing-video {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: rgba(133, 133, 133, 0.6); 
+    color:black;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+p.love-spread {
+    text-align:center;
+    cursor: pointer;
+}
+
+p.love-spread:hover {
+    color:#ff90c7;
+}
+
+p.love-spread:click {
+    color:red;
+}
+
+span.span1 {
+    clear: left;
+    display: block;
+    margin-left:0px;
+}
+
+ol {
+    list-style-type:none;
+}
+
+li {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left:25px;
+    list-style: none;
+}
+
+li.nav-item:hover {
+    color: black;
+    background-color: #ccc;
+}
+
+.header {
+  position: fixed;
+  top: 10;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.header h2 {
+  text-align: center;
+}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: #ccc;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #ebbde1;
+  width: 0%;
+}
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a87bfe;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #e36cfa;
+  background-color: transparent;
+  text-decoration: underline;
+}
+

@@ -35,3 +35,9 @@ function myFunction() {
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
 }
+
+async function getMessage() {
+    const response = await fetch('/data');
+    const message = await response.text();
+    document.getElementById('message-container').innerHTML = message;
+}

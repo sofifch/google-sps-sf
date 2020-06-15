@@ -36,8 +36,22 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-async function getMessage() {
-    const response = await fetch('/data');
-    const message = await response.text();
-    document.getElementById('message-container').innerHTML = message;
+function getMessage() {
+    fetch('/data').then(response => response.json()).then((someMessages) => {
+
+        const commentsListElement = document.getElementById('message-container');
+        commentsListElement.innerHTML = '';
+        commentsListElement.appendChild(
+            createListElement('Comment 1: ' + someMessages[0]));
+        commentsListElement.appendChild(
+            createListElement('Comment 2: ' + someMessages[1]));
+        commentsListElement.appendChild(
+            createListElement('Comment 3: ' + someMessages[2]));
+    });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

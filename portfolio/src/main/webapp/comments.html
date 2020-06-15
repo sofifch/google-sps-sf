@@ -2,16 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Sofia's Comments Tab</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <script src="script.js"></script>
     </head>
-  <body>
+  <body onload="getMessage()">
       <div id="my-content">
-          <h1>COMMENTS HERE</h1>
-          <p>See comments:</p>
-          <button onclick="getMessage()">Fetch hard-coded messages!</button>
-          <ul id="message-container"></ul>
+        <h1>SPEAK UP!</h1>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:1400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;
+        margin-bottom:40px">
+        <button class="submit" style="font-size:24px;margin-left:50px;" 
+        onclick="location.href='index.html';">
+            <i class="fa fa-chevron-circle-left"></i></button>
+        <form action="/data" method="POST">
+            <p class="input">Name:</p>
+            <input type="text" name="person-name">
+            <br/><br/>
+            <p class="input">Comment:</p>
+            <input type="text" name="person-comment">
+            <br/><br/>
+            <input type="submit"/>
+        </form>
+        <div class="d-flex flex-column">
+            <p id="message-container"></p>
+        </div>
       </div>
   </body>
 </html>

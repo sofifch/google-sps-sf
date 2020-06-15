@@ -32,9 +32,6 @@ public class DataServlet extends HttpServlet {
     @Override
     public void init() {
         myMessages = new ArrayList<>();
-        myMessages.add("Hello my name is Sofia Fernandez and I am a CS major at Georgia Tech.");
-        myMessages.add("This is my first time working with servlets, so I am just testing this.");
-        myMessages.add("This is the third hard-coded message that should be added to my arraylist.");
     }
 
   @Override
@@ -48,5 +45,13 @@ public class DataServlet extends HttpServlet {
         Gson myGson = new Gson();
         String nowJson = myGson.toJson(arraylist);
         return nowJson;
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String personName = request.getParameter("person-name");
+      String personMessage = request.getParameter("person-comment");
+      myMessages.add(personName + ": " + personMessage);
+      response.sendRedirect("/comments.html");
   }
 }

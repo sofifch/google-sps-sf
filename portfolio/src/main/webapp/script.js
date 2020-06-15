@@ -37,21 +37,18 @@ function myFunction() {
 }
 
 function getMessage() {
-    fetch('/data').then(response => response.json()).then((someMessages) => {
+    fetch('/data').then(response => response.json()).then((messageList) => {
 
         const commentsListElement = document.getElementById('message-container');
         commentsListElement.innerHTML = '';
-        commentsListElement.appendChild(
-            createListElement('Comment 1: ' + someMessages[0]));
-        commentsListElement.appendChild(
-            createListElement('Comment 2: ' + someMessages[1]));
-        commentsListElement.appendChild(
-            createListElement('Comment 3: ' + someMessages[2]));
+        for (i = 0; i < messageList.length; i++) {
+            commentsListElement.appendChild(createParagraphElement(messageList[i]));
+        }
     });
 }
 
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createParagraphElement(text) {
+  const element = document.createElement('p');
+  element.innerText = text;
+  return element;
 }

@@ -17,6 +17,9 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.sps.data.Comment;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,15 +33,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private List<String> myMessages;
-
-    @Override
-    public void init() {
-        myMessages = new ArrayList<>();
-    }
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Query myQuery = new Query("Comment");
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        PreparedQuery myResults = datastore.prepare(myQuery);
+        List<String> myMessages = new ArrayList<>();
+        for (Entity entity : myResults.asIterable()) {
+            String personName = (String) entity.getProperty("name");
+            String personMessage = (String) entity.getProperty("messageContent");
+            myMessages.add(personName + ": " + personMessage);
+        }
+
         String myJson = convertToJsonWithGson(myMessages);
         response.setContentType("application/json;");
         response.getWriter().println(myJson);
@@ -54,8 +60,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
       String personName = request.getParameter("person-name");
       String personMessage = request.getParameter("person-comment");
-      myMessages.add(personName + ": " + personMessage);
-
+      
       Entity commentEntity = new Entity("Comment");
       commentEntity.setProperty("name", personName);
       commentEntity.setProperty("messageContent", personMessage);

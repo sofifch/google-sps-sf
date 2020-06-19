@@ -38,7 +38,6 @@ function myFunction() {
 
 function getMessage() {
     fetch('/data').then(response => response.json()).then((messageList) => {
-
         const commentsListElement = document.getElementById('message-container');
         commentsListElement.innerHTML = '';
         for (i = 0; i < messageList.length; i++) {

@@ -14,10 +14,10 @@
 
 package com.google.sps.servlets;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +44,7 @@ public class DataServlet extends HttpServlet {
         response.getWriter().println(myJson);
   }
 
-  private String convertToJsonWithGson(List<String> arraylist) {
+  private static String convertToJsonWithGson(List<String> arraylist) {
         Gson myGson = new Gson();
         String nowJson = myGson.toJson(arraylist);
         return nowJson;

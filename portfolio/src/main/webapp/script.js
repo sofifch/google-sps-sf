@@ -36,15 +36,8 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-function getBlobstoreUrlAndMessage() {
-    fetch('/blobstore-url').then((response) => {
-        return response.text();
-    })
-    .then((imageUploadUrl) => {
-        const myForm = document.getElementById('sofifch-form');
-        myForm.action = imageUploadUrl;
-        myForm.classList.remove('hidden');
-      });
+function getMessage() {
+    getBlobstoreUrl();
     fetch('/data').then(response => response.json()).then((messageList) => {
         const commentsListElement = document.getElementById('message-container');
         commentsListElement.innerHTML = '';
@@ -52,6 +45,22 @@ function getBlobstoreUrlAndMessage() {
             commentsListElement.appendChild(createParagraphElement(messageList[i]));
         }
     });
+}
+
+function getBlobstoreUrl() {
+    fetch('/blobstore-url').then((response) => {
+        return response.text();
+    })
+    .then((imageUploadUrl) => {
+        const myForm = document.getElementById('sofifch-form');
+        myForm.action = imageUploadUrl;
+        myForm.classList.remove('hidden');
+        var myImage = document.createElement("img");
+        img.src = imageUploadUrl;
+        img.width = 40;
+        img.height = 40;
+        document.appendChild(img);
+      });
 }
 
 function createParagraphElement(text) {

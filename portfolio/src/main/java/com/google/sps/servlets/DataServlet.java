@@ -30,7 +30,6 @@ import com.google.appengine.api.images.ServingUrlOptions;
 import com.google.gson.Gson;
 import com.google.sps.data.Comment;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -78,10 +77,6 @@ public class DataServlet extends HttpServlet {
       }
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(commentEntity);
-      PrintWriter out = response.getWriter();
-      out.println("<a href=\"" + imageUrl + "\">");
-      out.println("<img src=\"" + imageUrl + "\" />");
-      out.println("</a>");
       response.sendRedirect("/comments.html");
   }
 

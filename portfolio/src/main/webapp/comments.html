@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
-  <body onload="getMessage()">
+  <body onload="getBlobstoreUrlAndMessage()">
       <div id="page-content">
         <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top" id="nav">
             <ul class="navbar-nav">
@@ -33,16 +33,19 @@
         <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:1400px">
         <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;
         margin-bottom:40px">
-        <form action="/data" method="POST">
+        <form id="sofifch-form"action="/data" method="POST" enctype="multipart/form-data">
             <p class="input">Name:</p>
             <input type="text" name="person-name">
             <br/><br/>
             <p class="input">Comment:</p>
             <input type="text" name="person-comment">
             <br/><br/>
+            <p class="input">Upload an image:</p>
+            <input type="file" name="image">
+            <br/><br/>
             <input type="submit"/>
         </form>
-        <div class="d-flex flex-column">
+        <div>
             <p id="message-container"></p>
         </div>
       </div>

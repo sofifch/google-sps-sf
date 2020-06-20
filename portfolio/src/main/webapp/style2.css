@@ -66,3 +66,7 @@ li.nav-item:hover {
   background: #ebbde1;
   width: 0%;
 }
+
+.hidden {
+  display: none;
+}

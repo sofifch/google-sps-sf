@@ -36,7 +36,15 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-function getMessage() {
+function getBlobstoreUrlAndMessage() {
+    fetch('/blobstore-url').then((response) => {
+        return response.text();
+    })
+    .then((imageUploadUrl) => {
+        const myForm = document.getElementById('sofifch-form');
+        myForm.action = imageUploadUrl;
+        myForm.classList.remove('hidden');
+      });
     fetch('/data').then(response => response.json()).then((messageList) => {
         const commentsListElement = document.getElementById('message-container');
         commentsListElement.innerHTML = '';

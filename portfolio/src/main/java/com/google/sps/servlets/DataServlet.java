@@ -14,7 +14,16 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.gson.Gson;
+import com.google.sps.data.Comment;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +35,38 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<p>Hello Sofia!<p>");
+        Query myQuery = new Query("Comment");
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        PreparedQuery myResults = datastore.prepare(myQuery);
+        List<String> myMessages = new ArrayList<>();
+        for (Entity entity : myResults.asIterable()) {
+            String personName = (String) entity.getProperty("name");
+            String personMessage = (String) entity.getProperty("messageContent");
+            myMessages.add(personName + ": " + personMessage);
+        }
+
+        String myJson = convertToJsonWithGson(myMessages);
+        response.setContentType("application/json;");
+        response.getWriter().println(myJson);
+  }
+
+  private static String convertToJsonWithGson(List<String> arraylist) {
+        Gson myGson = new Gson();
+        String nowJson = myGson.toJson(arraylist);
+        return nowJson;
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      String personName = request.getParameter("person-name");
+      String personMessage = request.getParameter("person-comment");
+      
+      Entity commentEntity = new Entity("Comment");
+      commentEntity.setProperty("name", personName);
+      commentEntity.setProperty("messageContent", personMessage);
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(commentEntity);
+
+      response.sendRedirect("/comments.html");
   }
 }

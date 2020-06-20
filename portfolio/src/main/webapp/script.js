@@ -36,8 +36,18 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-async function getMessage() {
-    const response = await fetch('/data');
-    const message = await response.text();
-    document.getElementById('message-container').innerHTML = message;
+function getMessage() {
+    fetch('/data').then(response => response.json()).then((messageList) => {
+        const commentsListElement = document.getElementById('message-container');
+        commentsListElement.innerHTML = '';
+        for (i = 0; i < messageList.length; i++) {
+            commentsListElement.appendChild(createParagraphElement(messageList[i]));
+        }
+    });
+}
+
+function createParagraphElement(text) {
+  const element = document.createElement('p');
+  element.innerText = text;
+  return element;
 }

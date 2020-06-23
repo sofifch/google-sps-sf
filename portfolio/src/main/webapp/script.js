@@ -38,11 +38,28 @@ function myFunction() {
 
 function getMessage() {
     getBlobstoreUrl();
-    fetch('/data').then(response => response.json()).then((messageList) => {
+    fetch('/data').then(response => response.json()).then((fullList) => {
         const commentsListElement = document.getElementById('message-container');
+        const urlsListElement = document.getElementById('image-container');
+        urlsListElement.innerHTML = '';
         commentsListElement.innerHTML = '';
+        var messageList = fullList[0];
+        var urlList = fullList[1];
         for (i = 0; i < messageList.length; i++) {
-            commentsListElement.appendChild(createParagraphElement(messageList[i]));
+            commentsListElement.appendChild(createListElement(messageList[i]));
+        }
+        for (j = 0; j < urlList.length; j++) {
+            if (urlList[j] == null) {
+                continue;
+            }
+            var div = document.createElement('div');
+            div.setAttribute('class', 'gallery');
+            urlsListElement.appendChild(div);
+            var myImage = document.createElement('img');
+            myImage.src = urlList[j];
+            myImage.width = 600;
+            myImage.height = 400;
+            div.appendChild(myImage);            
         }
     });
 }
@@ -55,16 +72,19 @@ function getBlobstoreUrl() {
         const myForm = document.getElementById('sofifch-form');
         myForm.action = imageUploadUrl;
         myForm.classList.remove('hidden');
-        var myImage = document.createElement("img");
-        img.src = imageUploadUrl;
-        img.width = 40;
-        img.height = 40;
-        document.appendChild(img);
       });
 }
 
-function createParagraphElement(text) {
-  const element = document.createElement('p');
+function createListElement(text) {
+  const element = document.createElement('li');
   element.innerText = text;
   return element;
 }
+
+function required(inputtx) {
+    if (inputtx.value.length == 0) { 
+        alert("No input!");  	
+        return false; 
+    }  	
+    return true; 
+} 

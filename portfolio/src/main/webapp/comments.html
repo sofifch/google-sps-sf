@@ -12,15 +12,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
   <body onload="getMessage()">
-      <div id="page-content">
-        <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top" id="nav">
+    <div id="page-content">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top" id="nav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" style="color:black" href="index.html">HOME</a>
                 </li>
             </ul>
-        </nav>
-      </div>
+    </nav>
       <div class="header">
         <div class="progress-container">
             <div class="progress-bar" id="myBar"></div>
@@ -33,7 +32,7 @@
         <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:1400px">
         <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;
         margin-bottom:40px">
-        <form id="sofifch-form"action="/data" method="POST" enctype="multipart/form-data">
+        <form id="sofifch-form" action="/blobstore-url" method="POST" enctype="multipart/form-data" onsubmit="required()">
             <p class="input">Name:</p>
             <input type="text" name="person-name">
             <br/><br/>
@@ -45,9 +44,17 @@
             <br/><br/>
             <input type="submit"/>
         </form>
-        <div>
-            <p id="message-container"></p>
+        <div id="message-container">
         </div>
+        &nbsp;
+        &nbsp;
+        <h2 id="kodakmoments">Image Gallery</h2>
+        <hr style="height:5px;background-color:#6495ED;color:#6495ED;border-width:0;width:400px">
+        <hr style="height:5px;background-color:#d9d5fc;color:#d9d5fc;border-width:0;width:1400px;
+        margin-bottom:40px">
+        <div id="image-container">
+        </div>
+      </div>
       </div>
   </body>
 </html>

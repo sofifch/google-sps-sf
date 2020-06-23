@@ -30,6 +30,7 @@ import com.google.appengine.api.images.ServingUrlOptions;
 import com.google.gson.Gson;
 import com.google.sps.data.Comment;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,17 +49,23 @@ public class DataServlet extends HttpServlet {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         PreparedQuery myResults = datastore.prepare(myQuery);
         List<String> myMessages = new ArrayList<>();
+        List<String> myUrls = new ArrayList<>();
+        List<List<String>> listOfLists = new ArrayList<>();
         for (Entity entity : myResults.asIterable()) {
             String personName = (String) entity.getProperty("name");
             String personMessage = (String) entity.getProperty("messageContent");
+            String fileUrl = (String) entity.getProperty("imageUrl");
             myMessages.add(personName + ": " + personMessage);
+            myUrls.add(fileUrl);
         }
-        String myJson = convertToJsonWithGson(myMessages);
+        listOfLists.add(myMessages);
+        listOfLists.add(myUrls);
+        String myJson = convertToJsonWithGson(listOfLists);
         response.setContentType("application/json;");
         response.getWriter().println(myJson);
   }
 
-  private static String convertToJsonWithGson(List<String> arraylist) {
+  private static String convertToJsonWithGson(List<List<String>> arraylist) {
         Gson myGson = new Gson();
         String nowJson = myGson.toJson(arraylist);
         return nowJson;
@@ -70,8 +77,10 @@ public class DataServlet extends HttpServlet {
       String personMessage = request.getParameter("person-comment");
       String imageUrl = getUploadedFileUrl(request, "image");
       Entity commentEntity = new Entity("Comment");
-      commentEntity.setProperty("name", personName);
-      commentEntity.setProperty("messageContent", personMessage);
+      if (personName != null && personMessage != null) {
+          commentEntity.setProperty("name", personName);
+          commentEntity.setProperty("messageContent", personMessage);
+      }
       if (imageUrl != null) {
           commentEntity.setProperty("imageUrl", imageUrl);
       }
@@ -94,7 +103,7 @@ public class DataServlet extends HttpServlet {
     // Our form only contains a single file input, so get the first index.
     BlobKey blobKey = blobKeys.get(0);
 
-    // User submitted form without selecting a file, so we can't get a URL. (live server)
+    // User submitted the form without selecting a file, so we can't get a URL. (live server)
     BlobInfo blobInfo = new BlobInfoFactory().loadBlobInfo(blobKey);
     if (blobInfo.getSize() == 0) {
       blobstoreService.delete(blobKey);

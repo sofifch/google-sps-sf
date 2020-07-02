@@ -87,4 +87,69 @@ function required(inputtx) {
         return false; 
     }  	
     return true; 
-} 
+}
+
+var likeCount1 = 0;
+var first = false;
+var likeCount2 = 0;
+var second = false;
+var likeCount3 = 0;
+var third = false;
+var likeCount4 = 0;
+var fourth = false;
+var likeCount5 = 0;
+var fifth = false;
+var likeCount6 = 0;
+var sixth = false;
+function likeImage(whichPic) {
+    if (whichPic == 1) {
+        first = true;
+    } else if (whichPic == 2) {
+        second = true;
+    } else if (whichPic == 3) {
+        third = true;
+    } else if (whichPic == 4) {
+        fourth = true;
+    } else if (whichPic == 5) {
+        fifth = true;
+    } else if (whichPic == 6) {
+        sixth = true;
+    }
+    if (first) {
+        likeCount1++;
+        first = false;
+        localStorage.setItem("likeCount1", likeCount1);
+        var displayCount1 = localStorage.getItem("likeCount1");
+        document.getElementById("pic1").innerHTML = displayCount1;
+    } else if (second) {
+        likeCount2++;
+        second = false;
+        localStorage.setItem("likeCount2", likeCount2);
+        var displayCount2 = localStorage.getItem("likeCount2");
+        document.getElementById("pic2").innerHTML = displayCount2;
+    } else if (third) {
+        likeCount3++;
+        third = false;
+        localStorage.setItem("likeCount3", likeCount3);
+        var displayCount3 = localStorage.getItem("likeCount3");
+        document.getElementById("pic3").innerHTML = displayCount3;
+    } else if (fourth) {
+        likeCount4++;
+        fourth = false;
+        localStorage.setItem("likeCount4", likeCount4);
+        var displayCount4 = localStorage.getItem("likeCount4");
+        document.getElementById("pic4").innerHTML = displayCount4;
+    } else if (fifth) {
+        likeCount5++;
+        fifth = false;
+        localStorage.setItem("likeCount5", likeCount5);
+        var displayCount5 = localStorage.getItem("likeCount5");
+        document.getElementById("pic5").innerHTML = displayCount5;
+    } else if (sixth) {
+        likeCount6++;
+        sixth = false;
+        localStorage.setItem("likeCount6", likeCount6);
+        var displayCount6 = localStorage.getItem("likeCount6");
+        document.getElementById("pic6").innerHTML = displayCount6;
+    }
+}
